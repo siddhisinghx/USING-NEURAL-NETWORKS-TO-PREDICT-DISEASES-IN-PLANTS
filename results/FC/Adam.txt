@@ -1,0 +1,118 @@
+Epoch 1/30
+43444/43444 [==============================] - 111s 3ms/step - loss: 1.2953 - acc: 0.6134 - val_loss: 2.6448 - val_acc: 0.3942
+
+Epoch 00001: val_loss did not improve from 2.02922
+Epoch 2/30
+43444/43444 [==============================] - 110s 3ms/step - loss: 1.1056 - acc: 0.6685 - val_loss: 1.6234 - val_acc: 0.5646
+
+Epoch 00002: val_loss improved from 2.02922 to 1.62338, saving model to Alexnet_Adam.hdf5
+Epoch 3/30
+43444/43444 [==============================] - 111s 3ms/step - loss: 1.0199 - acc: 0.6916 - val_loss: 0.9000 - val_acc: 0.7265
+
+Epoch 00003: val_loss improved from 1.62338 to 0.89995, saving model to Alexnet_Adam.hdf5
+Epoch 4/30
+43444/43444 [==============================] - 112s 3ms/step - loss: 0.8438 - acc: 0.7441 - val_loss: 0.7520 - val_acc: 0.7744
+
+Epoch 00004: val_loss improved from 0.89995 to 0.75201, saving model to Alexnet_Adam.hdf5
+Epoch 5/30
+43444/43444 [==============================] - 114s 3ms/step - loss: 0.7498 - acc: 0.7695 - val_loss: 0.5946 - val_acc: 0.8217
+
+Epoch 00005: val_loss improved from 0.75201 to 0.59456, saving model to Alexnet_Adam.hdf5
+Epoch 6/30
+43444/43444 [==============================] - 110s 3ms/step - loss: 0.6790 - acc: 0.7916 - val_loss: 0.5114 - val_acc: 0.8525
+
+Epoch 00006: val_loss improved from 0.59456 to 0.51140, saving model to Alexnet_Adam.hdf5
+Epoch 7/30
+43444/43444 [==============================] - 113s 3ms/step - loss: 0.6036 - acc: 0.8136 - val_loss: 0.5992 - val_acc: 0.8174
+
+Epoch 00007: val_loss did not improve from 0.51140
+Epoch 8/30
+43444/43444 [==============================] - 110s 3ms/step - loss: 0.5662 - acc: 0.8271 - val_loss: 0.5547 - val_acc: 0.8356
+
+Epoch 00008: val_loss did not improve from 0.51140
+Epoch 9/30
+43444/43444 [==============================] - 111s 3ms/step - loss: 0.4168 - acc: 0.8675 - val_loss: 0.3001 - val_acc: 0.9157
+
+Epoch 00009: val_loss improved from 0.51140 to 0.30008, saving model to Alexnet_Adam.hdf5
+Epoch 10/30
+43444/43444 [==============================] - 112s 3ms/step - loss: 0.3617 - acc: 0.8871 - val_loss: 0.2575 - val_acc: 0.9286
+
+Epoch 00010: val_loss improved from 0.30008 to 0.25746, saving model to Alexnet_Adam.hdf5
+Epoch 11/30
+43444/43444 [==============================] - 111s 3ms/step - loss: 0.3235 - acc: 0.8985 - val_loss: 0.2563 - val_acc: 0.9266
+
+Epoch 00011: val_loss improved from 0.25746 to 0.25628, saving model to Alexnet_Adam.hdf5
+Epoch 12/30
+43444/43444 [==============================] - 107s 2ms/step - loss: 0.2931 - acc: 0.9072 - val_loss: 0.2437 - val_acc: 0.9326
+
+Epoch 00012: val_loss improved from 0.25628 to 0.24366, saving model to Alexnet_Adam.hdf5
+Epoch 13/30
+43444/43444 [==============================] - 109s 2ms/step - loss: 0.2723 - acc: 0.9148 - val_loss: 0.2217 - val_acc: 0.9382
+
+Epoch 00013: val_loss improved from 0.24366 to 0.22170, saving model to Alexnet_Adam.hdf5
+Epoch 14/30
+43444/43444 [==============================] - 109s 3ms/step - loss: 0.2466 - acc: 0.9225 - val_loss: 0.3619 - val_acc: 0.8921
+
+Epoch 00014: val_loss did not improve from 0.22170
+Epoch 15/30
+43444/43444 [==============================] - 108s 2ms/step - loss: 0.2375 - acc: 0.9246 - val_loss: 0.2200 - val_acc: 0.9389
+
+Epoch 00015: val_loss improved from 0.22170 to 0.22005, saving model to Alexnet_Adam.hdf5
+Epoch 16/30
+43444/43444 [==============================] - 107s 2ms/step - loss: 0.2127 - acc: 0.9322 - val_loss: 0.2692 - val_acc: 0.9212
+
+Epoch 00016: val_loss did not improve from 0.22005
+Epoch 17/30
+43444/43444 [==============================] - 108s 2ms/step - loss: 0.2087 - acc: 0.9327 - val_loss: 0.2464 - val_acc: 0.9302
+
+Epoch 00017: val_loss did not improve from 0.22005
+Epoch 18/30
+43444/43444 [==============================] - 109s 3ms/step - loss: 0.1585 - acc: 0.9490 - val_loss: 0.1723 - val_acc: 0.9522
+
+Epoch 00018: val_loss improved from 0.22005 to 0.17229, saving model to Alexnet_Adam.hdf5
+Epoch 19/30
+43444/43444 [==============================] - 108s 2ms/step - loss: 0.1512 - acc: 0.9512 - val_loss: 0.1791 - val_acc: 0.9506
+
+Epoch 00019: val_loss did not improve from 0.17229
+Epoch 20/30
+43444/43444 [==============================] - 111s 3ms/step - loss: 0.1379 - acc: 0.9557 - val_loss: 0.1707 - val_acc: 0.9525
+
+Epoch 00020: val_loss improved from 0.17229 to 0.17066, saving model to Alexnet_Adam.hdf5
+Epoch 21/30
+43444/43444 [==============================] - 109s 3ms/step - loss: 0.1370 - acc: 0.9568 - val_loss: 0.1753 - val_acc: 0.9513
+
+Epoch 00021: val_loss did not improve from 0.17066
+Epoch 22/30
+43444/43444 [==============================] - 109s 3ms/step - loss: 0.1299 - acc: 0.9590 - val_loss: 0.1785 - val_acc: 0.9505
+
+Epoch 00022: val_loss did not improve from 0.17066
+Epoch 23/30
+43444/43444 [==============================] - 108s 2ms/step - loss: 0.1201 - acc: 0.9620 - val_loss: 0.1550 - val_acc: 0.9573
+
+Epoch 00023: val_loss improved from 0.17066 to 0.15495, saving model to Alexnet_Adam.hdf5
+Epoch 24/30
+43444/43444 [==============================] - 110s 3ms/step - loss: 0.1075 - acc: 0.9649 - val_loss: 0.1515 - val_acc: 0.9579
+
+Epoch 00024: val_loss improved from 0.15495 to 0.15148, saving model to Alexnet_Adam.hdf5
+Epoch 25/30
+43444/43444 [==============================] - 109s 3ms/step - loss: 0.1110 - acc: 0.9635 - val_loss: 0.1536 - val_acc: 0.9576
+
+Epoch 00025: val_loss did not improve from 0.15148
+Epoch 26/30
+43444/43444 [==============================] - 110s 3ms/step - loss: 0.1114 - acc: 0.9645 - val_loss: 0.1544 - val_acc: 0.9573
+
+Epoch 00026: val_loss did not improve from 0.15148
+Epoch 27/30
+43444/43444 [==============================] - 111s 3ms/step - loss: 0.0999 - acc: 0.9679 - val_loss: 0.1542 - val_acc: 0.9572
+
+Epoch 00027: val_loss did not improve from 0.15148
+Epoch 28/30
+43444/43444 [==============================] - 110s 3ms/step - loss: 0.1037 - acc: 0.9664 - val_loss: 0.1494 - val_acc: 0.9586
+
+Epoch 00028: val_loss improved from 0.15148 to 0.14942, saving model to Alexnet_Adam.hdf5
+Epoch 29/30
+43444/43444 [==============================] - 108s 2ms/step - loss: 0.1036 - acc: 0.9670 - val_loss: 0.1479 - val_acc: 0.9585
+
+Epoch 00029: val_loss improved from 0.14942 to 0.14786, saving model to Alexnet_Adam.hdf5
+Epoch 30/30
+43444/43444 [==============================] - 109s 3ms/step - loss: 0.1031 - acc: 0.9664 - val_loss: 0.1528 - val_acc: 0.9580

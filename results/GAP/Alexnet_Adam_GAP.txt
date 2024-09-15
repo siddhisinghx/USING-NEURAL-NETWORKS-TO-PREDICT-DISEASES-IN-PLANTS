@@ -1,0 +1,183 @@
+________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d_1 (Conv2D)            (None, 55, 55, 96)        34944     
+_________________________________________________________________
+activation_1 (Activation)    (None, 55, 55, 96)        0         
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 27, 27, 96)        0         
+_________________________________________________________________
+batch_normalization_1 (Batch (None, 27, 27, 96)        384       
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 17, 17, 256)       2973952   
+_________________________________________________________________
+activation_2 (Activation)    (None, 17, 17, 256)       0         
+_________________________________________________________________
+max_pooling2d_2 (MaxPooling2 (None, 8, 8, 256)         0         
+_________________________________________________________________
+batch_normalization_2 (Batch (None, 8, 8, 256)         1024      
+_________________________________________________________________
+conv2d_3 (Conv2D)            (None, 6, 6, 384)         885120    
+_________________________________________________________________
+activation_3 (Activation)    (None, 6, 6, 384)         0         
+_________________________________________________________________
+batch_normalization_3 (Batch (None, 6, 6, 384)         1536      
+_________________________________________________________________
+conv2d_4 (Conv2D)            (None, 4, 4, 384)         1327488   
+_________________________________________________________________
+activation_4 (Activation)    (None, 4, 4, 384)         0         
+_________________________________________________________________
+batch_normalization_4 (Batch (None, 4, 4, 384)         1536      
+_________________________________________________________________
+conv2d_5 (Conv2D)            (None, 2, 2, 256)         884992    
+_________________________________________________________________
+activation_5 (Activation)    (None, 2, 2, 256)         0         
+_________________________________________________________________
+max_pooling2d_3 (MaxPooling2 (None, 1, 1, 256)         0         
+_________________________________________________________________
+batch_normalization_5 (Batch (None, 1, 1, 256)         1024      
+_________________________________________________________________
+global_average_pooling2d_1 ( (None, 256)               0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 38)                9766      
+=================================================================
+Total params: 6,121,766
+Trainable params: 6,119,014
+Non-trainable params: 2,752
+_________________________________________________________________
+
+lr_reducer = ReduceLROnPlateau(factor = np.sqrt(0.1), cooldown=0, patience=2, min_lr=0.5e-6)
+csv_logger = CSVLogger('Alexnet_GAP_Adam.csv')
+early_stopper = EarlyStopping(min_delta=0.001,patience=30)
+model_checkpoint = ModelCheckpoint('Alexnet_GAP_Adam.hdf5',monitor = 'val_loss', verbose = 1,save_best_only=True)
+
+model.compile(loss='categorical_crossentropy',
+        optimizer="Adam",
+        metrics=['accuracy'])
+
+model.fit(alexnet_train_data, alexnet_train_label,
+              batch_size=12,
+              epochs=30,
+              validation_data=(alexnet_test_data,alexnet_test_label),
+              shuffle=True,callbacks=[lr_reducer,csv_logger,early_stopper,model_checkpoint])
+Train on 43444 samples, validate on 10861 samples
+Epoch 1/30
+43444/43444 [==============================] - 75s 2ms/step - loss: 1.7330 - acc: 0.5006 - val_loss: 2.0913 - val_acc: 0.4905
+
+Epoch 00001: val_loss improved from inf to 2.09131, saving model to Alexnet_GAP_Adam.hdf5
+Epoch 2/30
+43444/43444 [==============================] - 72s 2ms/step - loss: 0.6992 - acc: 0.7794 - val_loss: 0.5983 - val_acc: 0.8182
+
+Epoch 00002: val_loss improved from 2.09131 to 0.59828, saving model to Alexnet_GAP_Adam.hdf5
+Epoch 3/30
+43444/43444 [==============================] - 72s 2ms/step - loss: 0.4723 - acc: 0.8499 - val_loss: 0.7322 - val_acc: 0.7809
+
+Epoch 00003: val_loss did not improve from 0.59828
+Epoch 4/30
+43444/43444 [==============================] - 73s 2ms/step - loss: 0.3640 - acc: 0.8819 - val_loss: 0.4593 - val_acc: 0.8577
+
+Epoch 00004: val_loss improved from 0.59828 to 0.45930, saving model to Alexnet_GAP_Adam.hdf5
+Epoch 5/30
+43444/43444 [==============================] - 74s 2ms/step - loss: 0.2954 - acc: 0.9043 - val_loss: 0.5075 - val_acc: 0.8462
+
+Epoch 00005: val_loss did not improve from 0.45930
+Epoch 6/30
+43444/43444 [==============================] - 73s 2ms/step - loss: 0.2416 - acc: 0.9217 - val_loss: 0.3027 - val_acc: 0.9053
+
+Epoch 00006: val_loss improved from 0.45930 to 0.30273, saving model to Alexnet_GAP_Adam.hdf5
+Epoch 7/30
+43444/43444 [==============================] - 72s 2ms/step - loss: 0.1932 - acc: 0.9367 - val_loss: 0.3104 - val_acc: 0.9044
+
+Epoch 00007: val_loss did not improve from 0.30273
+Epoch 8/30
+43444/43444 [==============================] - 72s 2ms/step - loss: 0.1706 - acc: 0.9428 - val_loss: 0.6336 - val_acc: 0.8327
+
+Epoch 00008: val_loss did not improve from 0.30273
+Epoch 9/30
+43444/43444 [==============================] - 72s 2ms/step - loss: 0.0755 - acc: 0.9754 - val_loss: 0.1353 - val_acc: 0.9576
+
+Epoch 00009: val_loss improved from 0.30273 to 0.13530, saving model to Alexnet_GAP_Adam.hdf5
+Epoch 10/30
+43444/43444 [==============================] - 70s 2ms/step - loss: 0.0548 - acc: 0.9815 - val_loss: 0.1312 - val_acc: 0.9601
+
+Epoch 00010: val_loss improved from 0.13530 to 0.13117, saving model to Alexnet_GAP_Adam.hdf5
+Epoch 11/30
+43444/43444 [==============================] - 74s 2ms/step - loss: 0.0481 - acc: 0.9840 - val_loss: 0.1288 - val_acc: 0.9623
+
+Epoch 00011: val_loss improved from 0.13117 to 0.12877, saving model to Alexnet_GAP_Adam.hdf5
+Epoch 12/30
+43444/43444 [==============================] - 73s 2ms/step - loss: 0.0419 - acc: 0.9866 - val_loss: 0.1365 - val_acc: 0.9577
+
+Epoch 00012: val_loss did not improve from 0.12877
+Epoch 13/30
+43444/43444 [==============================] - 74s 2ms/step - loss: 0.0357 - acc: 0.9882 - val_loss: 0.2169 - val_acc: 0.9356
+
+Epoch 00013: val_loss did not improve from 0.12877
+Epoch 14/30
+43444/43444 [==============================] - 72s 2ms/step - loss: 0.0221 - acc: 0.9935 - val_loss: 0.1123 - val_acc: 0.9688
+
+Epoch 00014: val_loss improved from 0.12877 to 0.11234, saving model to Alexnet_GAP_Adam.hdf5
+Epoch 15/30
+43444/43444 [==============================] - 71s 2ms/step - loss: 0.0172 - acc: 0.9949 - val_loss: 0.1059 - val_acc: 0.9682
+
+Epoch 00015: val_loss improved from 0.11234 to 0.10591, saving model to Alexnet_GAP_Adam.hdf5
+Epoch 16/30
+43444/43444 [==============================] - 72s 2ms/step - loss: 0.0142 - acc: 0.9961 - val_loss: 0.1127 - val_acc: 0.9701
+
+Epoch 00016: val_loss did not improve from 0.10591
+Epoch 17/30
+43444/43444 [==============================] - 74s 2ms/step - loss: 0.0157 - acc: 0.9950 - val_loss: 0.1112 - val_acc: 0.9692
+
+Epoch 00017: val_loss did not improve from 0.10591
+Epoch 18/30
+43444/43444 [==============================] - 74s 2ms/step - loss: 0.0113 - acc: 0.9972 - val_loss: 0.0991 - val_acc: 0.9717
+
+Epoch 00018: val_loss improved from 0.10591 to 0.09907, saving model to Alexnet_GAP_Adam.hdf5
+Epoch 19/30
+43444/43444 [==============================] - 72s 2ms/step - loss: 0.0105 - acc: 0.9971 - val_loss: 0.1014 - val_acc: 0.9715
+
+Epoch 00019: val_loss did not improve from 0.09907
+Epoch 20/30
+43444/43444 [==============================] - 72s 2ms/step - loss: 0.0111 - acc: 0.9969 - val_loss: 0.1000 - val_acc: 0.9731
+
+Epoch 00020: val_loss did not improve from 0.09907
+Epoch 21/30
+43444/43444 [==============================] - 73s 2ms/step - loss: 0.0087 - acc: 0.9977 - val_loss: 0.0966 - val_acc: 0.9731
+
+Epoch 00021: val_loss improved from 0.09907 to 0.09663, saving model to Alexnet_GAP_Adam.hdf5
+Epoch 22/30
+43444/43444 [==============================] - 72s 2ms/step - loss: 0.0089 - acc: 0.9976 - val_loss: 0.1010 - val_acc: 0.9727
+
+Epoch 00022: val_loss did not improve from 0.09663
+Epoch 23/30
+43444/43444 [==============================] - 71s 2ms/step - loss: 0.0094 - acc: 0.9975 - val_loss: 0.1000 - val_acc: 0.9725
+
+Epoch 00023: val_loss did not improve from 0.09663
+Epoch 24/30
+43444/43444 [==============================] - 66s 2ms/step - loss: 0.0091 - acc: 0.9977 - val_loss: 0.1013 - val_acc: 0.9725
+
+Epoch 00024: val_loss did not improve from 0.09663
+Epoch 25/30
+43444/43444 [==============================] - 67s 2ms/step - loss: 0.0087 - acc: 0.9976 - val_loss: 0.1059 - val_acc: 0.9723
+
+Epoch 00025: val_loss did not improve from 0.09663
+Epoch 26/30
+43444/43444 [==============================] - 67s 2ms/step - loss: 0.0084 - acc: 0.9977 - val_loss: 0.0989 - val_acc: 0.9734
+
+Epoch 00026: val_loss did not improve from 0.09663
+Epoch 27/30
+43444/43444 [==============================] - 68s 2ms/step - loss: 0.0084 - acc: 0.9980 - val_loss: 0.0995 - val_acc: 0.9727
+
+Epoch 00027: val_loss did not improve from 0.09663
+Epoch 28/30
+43444/43444 [==============================] - 66s 2ms/step - loss: 0.0088 - acc: 0.9976 - val_loss: 0.0981 - val_acc: 0.9731
+
+Epoch 00028: val_loss did not improve from 0.09663
+Epoch 29/30
+43444/43444 [==============================] - 67s 2ms/step - loss: 0.0081 - acc: 0.9979 - val_loss: 0.1029 - val_acc: 0.9718
+
+Epoch 00029: val_loss did not improve from 0.09663
+Epoch 30/30
+43444/43444 [==============================] - 67s 2ms/step - loss: 0.0086 - acc: 0.9979 - val_loss: 0.1053 - val_acc: 0.9724
+
+Epoch 00030: val_loss did not improve from 0.09663

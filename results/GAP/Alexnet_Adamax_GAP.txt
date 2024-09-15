@@ -1,0 +1,63 @@
+lr_reducer = ReduceLROnPlateau(factor = np.sqrt(0.1), cooldown=0, patience=2, min_lr=0.5e-6)
+csv_logger = CSVLogger('Alexnet_GAP_Adamax.csv')
+early_stopper = EarlyStopping(min_delta=0.001,patience=5)
+model_checkpoint = ModelCheckpoint('Alexnet_GAP_Adamax.hdf5',monitor = 'val_loss', verbose = 1,save_best_only=True)
+
+model.compile(loss='categorical_crossentropy',
+        optimizer="Adamax",
+        metrics=['accuracy'])
+
+model.fit(alexnet_train_data, alexnet_train_label,
+              batch_size=12,
+              epochs=30,
+              validation_data=(alexnet_test_data,alexnet_test_label),
+              shuffle=True,callbacks=[lr_reducer,csv_logger,early_stopper,model_checkpoint])
+Train on 43444 samples, validate on 10861 samples
+Epoch 1/30
+43444/43444 [==============================] - 60s 1ms/step - loss: 0.0148 - acc: 0.9957 - val_loss: 0.1420 - val_acc: 0.9620
+
+Epoch 00001: val_loss improved from inf to 0.14199, saving model to Alexnet_GAP_Adamax.hdf5
+Epoch 2/30
+43444/43444 [==============================] - 60s 1ms/step - loss: 0.0144 - acc: 0.9957 - val_loss: 0.1189 - val_acc: 0.9672
+
+Epoch 00002: val_loss improved from 0.14199 to 0.11892, saving model to Alexnet_GAP_Adamax.hdf5
+Epoch 3/30
+43444/43444 [==============================] - 60s 1ms/step - loss: 0.0145 - acc: 0.9954 - val_loss: 0.1351 - val_acc: 0.9644
+
+Epoch 00003: val_loss did not improve from 0.11892
+Epoch 4/30
+43444/43444 [==============================] - 61s 1ms/step - loss: 0.0130 - acc: 0.9961 - val_loss: 0.1457 - val_acc: 0.9620
+
+Epoch 00004: val_loss did not improve from 0.11892
+Epoch 5/30
+43444/43444 [==============================] - 60s 1ms/step - loss: 0.0091 - acc: 0.9972 - val_loss: 0.1143 - val_acc: 0.9713
+
+Epoch 00005: val_loss improved from 0.11892 to 0.11430, saving model to Alexnet_GAP_Adamax.hdf5
+Epoch 6/30
+43444/43444 [==============================] - 60s 1ms/step - loss: 0.0081 - acc: 0.9974 - val_loss: 0.1155 - val_acc: 0.9711
+
+Epoch 00006: val_loss did not improve from 0.11430
+Epoch 7/30
+43444/43444 [==============================] - 60s 1ms/step - loss: 0.0072 - acc: 0.9978 - val_loss: 0.1052 - val_acc: 0.9727
+
+Epoch 00007: val_loss improved from 0.11430 to 0.10521, saving model to Alexnet_GAP_Adamax.hdf5
+Epoch 8/30
+43444/43444 [==============================] - 61s 1ms/step - loss: 0.0062 - acc: 0.9981 - val_loss: 0.1110 - val_acc: 0.9708
+
+Epoch 00008: val_loss did not improve from 0.10521
+Epoch 9/30
+43444/43444 [==============================] - 61s 1ms/step - loss: 0.0066 - acc: 0.9980 - val_loss: 0.1096 - val_acc: 0.9707
+
+Epoch 00009: val_loss did not improve from 0.10521
+Epoch 10/30
+43444/43444 [==============================] - 61s 1ms/step - loss: 0.0056 - acc: 0.9985 - val_loss: 0.1046 - val_acc: 0.9740
+
+Epoch 00010: val_loss improved from 0.10521 to 0.10455, saving model to Alexnet_GAP_Adamax.hdf5
+Epoch 11/30
+43444/43444 [==============================] - 62s 1ms/step - loss: 0.0058 - acc: 0.9985 - val_loss: 0.1058 - val_acc: 0.9732
+
+Epoch 00011: val_loss did not improve from 0.10455
+Epoch 12/30
+43444/43444 [==============================] - 61s 1ms/step - loss: 0.0044 - acc: 0.9988 - val_loss: 0.1047 - val_acc: 0.9729
+
+Epoch 00012: val_loss did not improve from 0.10455
